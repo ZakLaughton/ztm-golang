@@ -16,6 +16,34 @@ package main
 
 import "fmt"
 
-func main() {
+type Character struct {
+	Health    int
+	MaxHealth int
+	Energy    int
+	MaxEnergy int
+	Name      string
+}
 
+func (c *Character) heal() {
+	fmt.Println("Health:", c.Health, "Healing...")
+	c.Health += 1
+	fmt.Println("New health:", c.Health)
+}
+
+func (c *Character) energize() {
+	fmt.Println("Energy:", c.Energy, "Energizing...")
+	c.Energy += 1
+	fmt.Println("New energy:", c.Energy)
+}
+
+func main() {
+	timmy := Character{
+		Health:    10,
+		MaxHealth: 20,
+		Energy:    10,
+		MaxEnergy: 20,
+	}
+	fmt.Println("Initial:", timmy)
+	timmy.heal()
+	timmy.energize()
 }

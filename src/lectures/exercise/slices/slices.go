@@ -19,4 +19,14 @@ import "fmt"
 type Part string
 
 func main() {
+	var assemblyLine [3]Part
+	fmt.Println("assemblyLine:", assemblyLine)
+	assemblyLine[0] = "Part 1"
+	fmt.Println("assemblyLine:", assemblyLine)
+	assemblyLine[1] = "Part 2"
+	fmt.Println("assemblyLine:", assemblyLine)
+
+	firstTwoParts := assemblyLine[:2]
+	fmt.Println("assemblyLine:", assemblyLine)
+	fmt.Println("slice:", firstTwoParts)
 }

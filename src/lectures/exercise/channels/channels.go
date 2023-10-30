@@ -37,7 +37,32 @@ func makeJobs() []Job {
 	return jobs
 }
 
+func runJob(resultChan chan int, j Job) {
+	// run , then place result in resultChan
+	resultChan <- longCalculation(j)
+}
+
 func main() {
 	rand.New(rand.NewSource(time.Now().UnixNano()))
 	jobs := makeJobs()
+
+	resultChan := make(chan int, 10)
+
+	// spawn goroutines for every job we have
+	// goroutines and main() will continue to run independently
+	for i := 0; i < len(jobs); i++ {
+		go runJob(resultChan, jobs[i])
+	}
+
+	resultCount := 0
+	sum := 0
+	for {
+		result := <-resultChan
+		sum += result
+		resultCount += 1
+		if resultCount == len(jobs) {
+			break
+		}
+	}
+	fmt.Println("sum is", sum)
 }

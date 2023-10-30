@@ -19,6 +19,28 @@ package main
 
 import "fmt"
 
-func main() {
+func takeName(name string) {
+	fmt.Println(returnMessage(name))
+}
 
+func returnMessage(name string) string {
+	return "Hello, " + name
+}
+
+func addThreeNumbers(a, b, c int) int {
+	return a + b + c
+}
+
+func returnNumber() int {
+	return 5
+}
+
+func returnTwoNumbers() (int, int) {
+	return 1, 2
+}
+
+func main() {
+	takeName("Zak")
+	a, b := returnTwoNumbers()
+	fmt.Println(addThreeNumbers(returnNumber(), a, b))
 }

@@ -17,8 +17,15 @@
 
 package main
 
-import "fmt"
+type Coordinate struct {
+	x, y, int
+}
+
+type Rectangle struct {
+	length int
+	width  int
+}
 
 func main() {
-
+	
 }

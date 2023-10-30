@@ -12,7 +12,19 @@
 
 package main
 
-import "fmt"
-
 func main() {
+	myNum := 0
+
+	for i := 1; i <= 50; i++ {
+		myNum = i
+		if myNum%3 == 0 && myNum%5 == 0 {
+			println("FizzBuzz")
+		} else if myNum%3 == 0 {
+			println("Fizz")
+		} else if myNum%5 == 0 {
+			println("Buzz")
+		} else {
+			println(myNum)
+		}
+	}
 }
